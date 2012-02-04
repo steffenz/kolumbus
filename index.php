@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Reiseplanlegger</title>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
@@ -37,16 +38,30 @@
 <div class="ui-widget">
 
 	<div id="fraPlass" class="fratil">
-	
+
+<form action="getResult.php" method="get">
 	<label for="from">Fra:</label>
-	<input id="from" placeholder="Fra holdeplass">
+	<input name="from" id="from" placeholder="Fra holdeplass">
 	
 <br/><br/>
 	
 	<label for="to">Til:</label>
-	<input id="to" placeholder="Fra holdeplass">
+	<input name="to" id="to" placeholder="Til holdeplass">
 	
 <br/><br/>
+
+	<label for="dato">Dato:</label>
+	<input name="dato" id="dato" type="text" value="<?php echo date('d/m/y')?>">
+
+<br/><br/>
+
+	<label for="tid">Tid:</label>
+	<input id="tid" name="tid" type="text" value="<?php echo date('H:i')?>">
+
+<br/><br/>
+	
+<input type="submit" value="Finn avganger..">
+</form>
 	</div>
 
 </div>
