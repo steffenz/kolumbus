@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <?php
-include('makeRoute.php');
+include('GTFS_class.php');
 
 $fromStop = $_GET['from'];
 $toStop = $_GET['to'];
