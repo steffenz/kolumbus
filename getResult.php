@@ -19,19 +19,23 @@ $result = mysql_query("SELECT * FROM stops WHERE stop_name = '$til'");
 while($row = mysql_fetch_array($result)) {
 $tilStoppID = $row['stop_id'];
 }
-
-
-
-
-$result = mysql_query("SELECT 
+ 
+ 
+$result = mysql_query(" SELECT 
 stops.stop_id, stops.stop_name, stops.stop_desc, stops.stop_lat, stops.stop_lon,
 
-stop_times.trip_id, stop_times.arrival_time, stop_times.departure_time, stop_times.stop_sequence
+stop_times.trip_id, stop_times.arrival_time, stop_times.departure_time, stop_times.stop_sequence,
+trips.route_id, trips.trip_headsign
 
 FROM stops
 
-JOIN stop_times ON stops.stop_id = stop_times.stop_id WHERE stops.stop_id = '$fraStoppID' ORDER BY arrival_time
+JOIN stop_times ON stops.stop_id = stop_times.stop_id
+
+JOIN trips ON stop_times.trip_id = trips.trip_id WHERE stops.stop_id = '$fraStoppID' ORDER BY arrival_time
  LIMIT 5");
+ 
+ 
+
 
 echo "<table>
 <tr>
